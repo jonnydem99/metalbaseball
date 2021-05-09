@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.darklightbtn {
+  font-size: x-small;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+}
+
+.fullWidth {
+  width: 100%;
+}
