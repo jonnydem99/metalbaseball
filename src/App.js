@@ -15,6 +15,7 @@ import Atlanta from "./Components/Cities/Atlanta";
 import Baltimore from "./Components/Cities/Baltimore";
 import Houston from "./Components/Cities/Houston";
 import axios from 'axios';
+import { Container } from "react-bootstrap";
 
 const api = axios.create({
   baseURL: `https://obscure-basin-88823.herokuapp.com/https://api.printify.com/v1/shops/2861059/products.json`
@@ -26,10 +27,15 @@ const options = {
 
 export default class App extends Component {
   
+  state = {
+    shirts: []
+  }
+
   constructor() { 
     super();
     api.get('/', options).then(res => {
       console.log(res.data)
+      this.setState({ shirts: res.data.data })
     })
   }
 
@@ -47,7 +53,9 @@ render() {
       <Route path="/arizona"> <Arizona /> </Route>
       <Route path="/atlanta"> <Atlanta /> </Route>
       <Route path="/Baltimore"> <Baltimore /> </Route>
-      <Route path="/Houston"> <Houston /> </Route>
+      <Container>
+      <Route path="/Houston" >{this.state.shirts.map(shirt => <div key={shirt.id}>{shirt.title}</div>)} <Houston /> </Route>
+      </Container>
       </Switch>
       
 

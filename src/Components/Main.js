@@ -25,7 +25,7 @@ export default class Main extends Component {
     };
     this.changeCity = this.changeCity.bind(this);
   }
-
+  
   changeCity(city) {
     this.setState({ city: city });
     console.log("city = " + this.state.city);
