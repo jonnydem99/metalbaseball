@@ -28,25 +28,111 @@ const options = {
 export default class App extends Component {
   
   state = {
-    shirts: []
+    shirts: [],
+    houstonshirts: [],
   }
 
-  constructor() { 
-    super();
+  constructor(props) { 
+    super(props);
+    /*this.renderHoustonShirts = this.renderHoustonShirts.bind(this);*/
+    this.gethoustonshirts = this.gethoustonshirts.bind(this);
+    this.state = {
+      shirts: [],
+      houstonshirts: [],
+    }
+  }
+
+  gethoustonshirts = async () => {
+
+    api.get("/", options).then(res => {
+      console.log(res.data);
+      this.setState({
+        shirts: res.data.data,
+        houstonshirts: res.data.data.filter(_shirt => _shirt.title.includes("Astros"))
+       });
+   });
+/*
+    let houArray
+    let data
     api.get('/', options).then(res => {
       console.log(res.data)
       this.setState({ shirts: res.data.data })
     })
-  }
+      data = this.state.shirts
+      houArray = [];
+    for(let i = 0; i < data.length; i++) {
+      if (data[i].title.includes("Astros")){
+        houArray.push(data[i]);
+        this.setState({houstonshirts: houArray})
+        console.log("houstonshirts = " + houArray)
+        } 
+    }
+    */
+}
+componentDidMount() {
+  this.gethoustonshirts();
+}
+    /*
+    this.setState(state => {
+      const houstonshirts = this.state.houstonshirts.concat(state.value);
 
+filterHoustonShirts = houShirts => {
+  let tempArr = [];
+  let imagesLength = this.state.images.length;
+  let processedLength = 0
+  this.state.images.map(image => {
+    axios
+      .get(
+        `https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key={some api key}&photo_id=${
+        image.id}&format=json&nojsoncallback=1`)
+      .then(result => {
+        processedLength++;
+        if (result.data.photo.title._content.indexOf(title) > -1) {
+          tempArr.push(image);
+        }
+        if(processesLength ==  imagesLength){
+           this.setState({
+             images: tempArr // update the images
+           });
+        }
+      });
+  });
   
+};
+
+  renderHoustonShirts() {
+    let houArray;
+    for(let i = 0; i < this.state.shirts.length; i++) {
+      if (this.state.shirts[i].title.includes("Astros")){
+        
+        this.setState({houstonshirts: this.state.houstonshirts.p([i])})
+      
+        this.setState(state => {
+          const houstonshirts = this.state.houstonshirts.concat(state.value);
+        
+      } else {
+
+      }
+    } 
+    {console.log(this.state.houstonshirts)}
+    return
+        this.setState({houstonshirts: houArray})
+  }
+*/
+
 
 render() {
+  
+  setTimeout(() => {
+    console.log(
+      this.state.houstonshirts 
+    );
+  }, 1000);
   return (
     <BrowserRouter>
     <div className="App">
       <Navbar></Navbar>
-      <Main></Main>
+      <Main houstonshirtsmainlevel={this.state.houstonshirts}></Main>
       
 
       <Switch>
@@ -54,11 +140,10 @@ render() {
       <Route path="/atlanta"> <Atlanta /> </Route>
       <Route path="/Baltimore"> <Baltimore /> </Route>
       <Container>
-      <Route path="/Houston" >{this.state.shirts.map(shirt => <div key={shirt.id}>{shirt.title}</div>)} <Houston /> </Route>
+      <Route path="/Houston"> <Houston  houstonshirtscitylevel={this.state.houstonshirts}>{this.state.shirts.map(shirt => <div key={shirt.id}>{shirt.title}</div>)} /> </Houston></Route>
+       
       </Container>
       </Switch>
-      
-
       <Footer></Footer>
       
     </div>
@@ -66,3 +151,5 @@ render() {
   );
   }
 }
+/*
+{this.state.houstonshirts.map(shirt => <div key={shirt.id}>{shirt.description}</div>)} */

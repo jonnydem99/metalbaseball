@@ -29,6 +29,7 @@ export default class Main extends Component {
   changeCity(city) {
     this.setState({ city: city });
     console.log("city = " + this.state.city);
+    console.log(this.props.houstonshirtsmainlevel);
   }
 
   render() {
