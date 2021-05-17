@@ -19,3 +19,20 @@
         </>
       </ThemeProvider>
 */
+
+<img
+                className="imgs"
+                src={shirt.images[0].src}
+                alt="Shirt"
+                width="400"
+                height="400"
+              ></img>
+              </Row>
+              <Row>
+              <img 
+                className="imgs"
+                src={shirt.images[3].src}
+                alt="Shirt"
+                width="400"
+                height="400"
+              ></img>

@@ -50,3 +50,23 @@
 .fullWidth {
   width: 100%;
 }
+
+.globalbackgroundandtext {
+  background-size: cover;
+  margin: auto;
+  width: auto;
+  min-height: 100vh;
+  height: max-content;
+  background-position: center;
+  background-color: black;
+  color: rgb(199, 199, 199);
+}
+
+.fillimgspace {
+  
+}
+
+.imgs {
+  outline-offset: 10px;
+  margin: 5% ;
+}

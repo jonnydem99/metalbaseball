@@ -4,11 +4,7 @@ import Main from "./Components/Main";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./Globalstyle";
-import { lightTheme, darkTheme } from "./Themes";
 import React, { useEffect, useState, Component } from "react";
-import Button from "react-bootstrap/Button";
 import { BrowserRouter, Switch, Route, } from 'react-router-dom';
 import Arizona from "./Components/Cities/Arizona";
 import Atlanta from "./Components/Cities/Atlanta";
@@ -16,6 +12,7 @@ import Baltimore from "./Components/Cities/Baltimore";
 import Houston from "./Components/Cities/Houston";
 import axios from 'axios';
 import { Container } from "react-bootstrap";
+import Black from "./imgs/Black.png";
 
 const api = axios.create({
   baseURL: `https://obscure-basin-88823.herokuapp.com/https://api.printify.com/v1/shops/2861059/products.json`
@@ -48,7 +45,7 @@ export default class App extends Component {
       console.log(res.data);
       this.setState({
         shirts: res.data.data,
-        houstonshirts: res.data.data.filter(_shirt => _shirt.title.includes("Astros"))
+        houstonshirts: res.data.data.filter(_shirt => _shirt.title.includes("Houston"))
        });
    });
 /*
@@ -129,8 +126,9 @@ render() {
     );
   }, 1000);
   return (
-    <BrowserRouter>
-    <div className="App">
+    <BrowserRouter className="globalbackgroundandtext"
+    style={{ backgroundImage: `url(${Black})` }}>
+    <div className="App globalbackgroundandtext">
       <Navbar></Navbar>
       <Main houstonshirtsmainlevel={this.state.houstonshirts}></Main>
       

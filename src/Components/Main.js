@@ -1,20 +1,11 @@
 import React, { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Body from "./Body";
-import LinkContainer from "react-router-bootstrap";
-import { Nav } from "react-bootstrap";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useRouteMatch,
-  useParams
 } from "react-router-dom";
 
 export default class Main extends Component {

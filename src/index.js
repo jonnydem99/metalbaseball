@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Black from "./imgs/Black.png";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App className="globalbackgroundandtext"
+    style={{ backgroundImage: `url(${Black})` }} />
   </React.StrictMode>,
   document.getElementById('root')
 );
