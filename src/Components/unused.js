@@ -36,3 +36,71 @@
                 width="400"
                 height="400"
               ></img>
+
+
+
+
+
+
+              
+.item {
+  max-height: 50vh;
+  max-width: 50vw;
+  
+}
+
+.carousel-inner {
+  display: flex;
+  justify-content: center;
+
+}
+
+.img {
+  
+  display: flex;
+  justify-content: center;
+  max-width: 60vw;
+
+}
+
+.carouse {
+  max-width: 50vw;
+  height:auto;
+}
+
+
+\
+<Carousel>
+                    <Carousel.Item className="item" interval={8000}>
+                      <Container>
+                      <img
+                        className="d-block w-40 img"
+                        src={shirt.images[0].src}
+                        alt="Shirt"
+                      />
+                      </Container>
+                    </Carousel.Item>
+                    <Carousel.Item className="item" interval={8000}>
+                      <Container className="imgcontainer">
+                      <img
+                        className="d-block w-40 img"
+                        src={shirt.images[3].src}
+                        alt="Shirt 2"
+                      />
+                      </Container>
+                    </Carousel.Item>
+                  </Carousel>
+
+
+
+
+                  <Container>
+                      <img
+                        className="img"
+                        src={shirt.images[0].src}
+                        alt="Shirt"
+                      />
+                      </Container>
+                    
+                    
+                     

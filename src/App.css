@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -62,11 +64,24 @@
   color: rgb(199, 199, 199);
 }
 
-.fillimgspace {
+.img {
+  
+  justify-content: right;
+  max-width: 20vw;
+  padding: 1em;
+
+}
+
+
+
+.shirtCol {
+  padding: 2em;
+  margin: 2em;
   
 }
 
-.imgs {
-  outline-offset: 10px;
-  margin: 5% ;
+.title {
+  padding-bottom: 1em;
+  height: 14vh;
+  width: auto;
 }

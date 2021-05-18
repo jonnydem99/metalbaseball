@@ -18,38 +18,31 @@ export default class Houston extends Component {
     {
       console.log(this.state.houstonshirts);
     }
+    let images;
     return (
       <Container>
-        <Container className="shirts">
-          <Col>
+        <Row>
+        
+          
             {this.state.houstonshirts.map((shirt, id) => (
-              <Container key={id}>
-                <h3>{shirt.title}</h3>
+              <Col key={id} className="shirtCol">
+                <h3 className="title">{shirt.title}</h3>
                 <Row>
-                  <Container className="fillimgspace">
-                  <Carousel>
-                    <Carousel.Item>
-                      <img
-                        className="d-block w-100"
-                        src={shirt.images[0].src}
-                        alt="Shirt"
-                      />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                      <img
-                        className="d-block w-100"
-                        src={shirt.images[3].src}
-                        alt="Shirt 2"
-                      />
-                    </Carousel.Item>
-                  </Carousel>
+                  <Container>
+                    <img
+                      className="img"
+                      src={shirt.images[0].src}
+                      alt="Shirt"
+                    />
                   </Container>
+                  </Row>
                   <Row>{shirt.description}</Row>
-                </Row>
-              </Container>
+                
+                
+              </Col>
             ))}
-          </Col>
-        </Container>
+
+        </Row>
       </Container>
     );
   }
